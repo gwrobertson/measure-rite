@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Measure Rite</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+        crossorigin="anonymous">
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <title>Location Map</title>
+    <meta name="viewport" content="initial-scale=1.0">
+    <meta charset="utf-8">
+</head>
+
+<body>
+
+    <header id="navBar" class="nav-down">
+        <div class="container">
+            <div class="wrapper">
+                <div id="logo">
+                    <a href="index.html">
+                        <img src="img/measurerite.png" alt="logo">
+                    </a>
+                </div>
+
+                <nav>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">Who We Are</a></li>
+                        <li><a href="whatwedo.html">What We Do</a></li>
+                        <li class="current"><a href="contact.html">Contact Us</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <section id="location" class="main">
+        <div class="wrapper">
+            <div id="map"></div>
+            <script>
+                var map;
+                function initMap() {
+                    map = new google.maps.Map(document.getElementById('map'), {
+                        center: { lat: 52.370244, lng: -1.262716 },
+                        zoom: 7
+                    });
+
+                    // Array of markers
+                    var markers = [
+                        {
+                            coords: { lat: 52.403310, lng: -1.309395 },
+                            content: '<h4>MEASURE RITE</h4>'
+                        },
+                    ];
+
+                    // Loop through markers
+                    for (var i = 0; i < markers.length; i++) {
+                        // Add marker
+                        addMarker(markers[i]);
+                    }
+
+                    // Add Marker Function
+                    function addMarker(props) {
+                        var marker = new google.maps.Marker({
+                            position: props.coords,
+                            map: map,
+                            //icon:props.iconImage
+                        });
+
+                        // Check for customicon
+                        if (props.iconImage) {
+                            // Set icon image
+                            marker.setIcon(props.iconImage);
+                        }
+
+                        // Check content
+                        if (props.content) {
+                            var infoWindow = new google.maps.InfoWindow({
+                                content: props.content
+                            });
+                        }
+
+                        marker.addListener('mouseover', function () {
+                            infoWindow.open(map, marker);
+                        });
+
+                        marker.addListener('mouseout', function () {
+                            infoWindow.close(map, marker);
+                        });
+
+                        marker.addListener('click', function () {
+                            map.setZoom(12);
+                            map.setCenter(marker.getPosition());
+                        });
+
+                        marker.addListener('dblclick', function () {
+                            map.setZoom(7);
+                            map.setCenter(marker.getPosition());
+                        });
+                    }
+
+                }
+            </script>
+
+            <div class="info">
+                <div class="card">
+                    <h4>Address</h4>
+                    <p>Measure Rite,</p>
+                    <p>Tuckeys Farm,</p>
+                    <p>Harbourgh Magna,</p>
+                    <p>Rugby,</p>
+                    <p>Warwickshire,</p>
+                    <p>CV23 0JH,</p>
+                    <p>United Kingdom</p>
+                    <p>Telephone: 01788 833360</p>
+                    <p>Email: sales@measure-rite.com</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+
+
+
+
+    <footer>
+        <div class="wrapper">
+            <div class="info">
+                <a href="index.html">
+                    <h6>Home</h6>
+                </a>
+                <a href="about.html">
+                    <h6>Who We Are</h6>
+                </a>
+                <a href="whatwedo.html">
+                    <h6>What We Do</h6>
+                </a>
+            </div>
+            <div class="contact">
+                <h6>Adress</h6>
+                <p>Measure Rite, Tuckeys Farm</p>
+                <p>Harbough Magna, Rugby,</p>
+                <p>Warwickshire,</p>
+                <p>CV23 0JH</p>
+            </div>
+            <div class="contact">
+                <h6>Get In Touch</h6>
+                <p>Telephone: 01788 833890</p>
+                <p>Email: sales@measure-rite.com</p>
+            </div>
+        </div>
+        <div class="logo">
+            <img src="img/logow.png" alt="logo">
+        </div>
+        <div class="copy">
+            <h6>MEASURE RITE &copy; 2018.</h6>
+            <h6>All Rights Reserved.</h6>
+            <p>Designed By George Robertson.</p>
+        </div>
+    </footer>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+        crossorigin="anonymous"></script>
+
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDwd_glRI3CZPn7Y7VwdV1QJlMXGn1nyOQ&callback=initMap">
+    </script>
+    <script src="js/main.js"></script>
+</body>
+
+</html>
