@@ -1,0 +1,110 @@
+.work-cover{
+    background: {
+        image: url(../images/planning.jpg);
+        size: cover;
+        repeat: no-repeat;
+        position: center center;
+    }
+    padding: 20vh 0;
+    height: 100vh;
+    width: 100%;
+    text-align: center;
+    position: relative;
+    z-index: 1;
+    overflow: hidden; 
+}
+
+#whatwedo .container{
+    width: 95%;
+    margin-top: -2em;
+}
+
+#whatwedo .about{
+    margin-top: 2em;
+    border-bottom: black 2px solid;
+    padding-bottom: 50px;
+}
+
+#whatwedo .about h2{
+    margin: 15px;
+}
+
+#whatwedo .about p{
+    margin: 15px;
+    padding-right: 200px;
+}
+
+#whatwedo .companies{
+    margin-top: 2em;
+    padding-bottom: 50px;
+}
+
+#whatwedo .companies h2{
+    margin: 15px;
+}
+
+#whatwedo .companies p{
+    margin: 15px;
+    padding-right: 200px;
+}
+
+.companies ul{
+    text-align: center;
+    margin-top: 2em;
+}
+
+.companies li{
+    display:inline;
+    font-size: 36px;
+    padding: 0 60px 0 60px;
+}
+
+.companies li img{
+      width: 100px;
+      height: auto;
+}
+  
+.companies li a{
+    color: #bfbfbf;
+}
+  
+.companies li a:hover{
+    color: #2A40D1;
+}
+
+@media(max-width: 1024px){
+    #whatwedo {
+        .companies p, .about p{
+        padding-right: 50px;
+        }
+    }
+
+    .companies ul{
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        padding: 0;
+
+        li{
+            padding: .6em;
+        }
+    }
+}
+
+@media(max-width: 1000px){
+    .work-cover{
+        height: 80vh;
+    }
+
+    #whatwedo {
+        .companies p, .about p{
+        padding-right: 10px;
+        }
+    }
+}
+
+@media (max-width: 733px){
+    .work-cover{
+        height: 60vh;
+    }
+    
+}
